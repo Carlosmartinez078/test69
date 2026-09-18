@@ -20,9 +20,8 @@ int main(){
 
 
 
-void registrarElementos (Elemento* Pelemento){
-    const int n = 3;
-    Pelemento->cargas[n];
+void registrarElementos (Elemento& Pelemento){
+    Pelemento.cargas[3];
     
     std::cout << "Ingrese el codigo del elemento" << std::endl;
     std::cin >> Pelemento->codigo;
