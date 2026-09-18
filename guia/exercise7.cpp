@@ -1,3 +1,5 @@
+//modificar un arreglo mediante puntero
+
 #include <iostream>
 
 void changeArreglo(int* arreglo, int tamano);

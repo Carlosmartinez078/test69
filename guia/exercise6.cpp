@@ -1,3 +1,5 @@
+// cambiar datos con punteros
+
 #include <iostream>
 
 //son punteros que entran al valor de la variable x y y

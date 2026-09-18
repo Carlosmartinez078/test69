@@ -1,3 +1,5 @@
+// calculo area punteros
+
 #include <iostream>
 
 struct Rectangulo {

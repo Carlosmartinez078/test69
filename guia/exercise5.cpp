@@ -1,3 +1,5 @@
+//comparar nota estudiante, referencia
+
 #include <iostream>
 
 struct estudiante {

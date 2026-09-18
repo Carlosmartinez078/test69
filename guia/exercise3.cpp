@@ -1,3 +1,5 @@
+// buscar mayor puntero
+
 #include <iostream>
 
 struct Numero {
