@@ -4,7 +4,7 @@ struct cuenta {
     int saldo;
 };
 
-void actualizarSaldo (cuenta& Pcuenta, int monto);
+void actualizarSaldo (cuenta& Pcuenta, int monto); // por referencia
 
 main(){
     cuenta Cuenta1;
