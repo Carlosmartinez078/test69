@@ -98,14 +98,13 @@ int main()
         default:
             std::cout << "Opcion invalida. Intente nuevamente.\n";
         }
-    } while (opcion != 0);
+        } while (opcion != 0);
 
-    return 0;
+        return 0;
 }
 
 // Pedir los datos de una canción
-Cancion pedirDatosCancion()
-{
+Cancion pedirDatosCancion() {
     Cancion nueva;
 
     std::cout << "\n--- Agregar nueva cancion ---\n";
