@@ -3,7 +3,7 @@
 #include <iostream>
 
 struct Producto {
-    std::string nombre;
+    string nombre;
     float precio;
 };
 
@@ -20,8 +20,8 @@ int main(){
     Producto* mayor = productExpensive(productos2, longi); // llamar la funcion de esa manera si piden que retorne algo
 
     if (mayor != nullptr) {
-        std::cout << "\nEl producto mas caro es: " << mayor->nombre << std::endl;
-        std::cout << "Precio: $" << mayor->precio << std::endl;
+        cout << "\nEl producto mas caro es: " << mayor->nombre << std::endl;
+        cout << "Precio: $" << mayor->precio << std::endl;
     }
 
     return 0;
@@ -30,16 +30,16 @@ int main(){
 
 Producto* productExpensive(Producto* Pproducto, int tamano){
     if (tamano <= 0) {
-        std::cout << "El arreglo esta vacio." << std::endl;
+        cout << "El arreglo esta vacio." << std::endl;
         return nullptr;
     } 
     
     Producto* mayor = Pproducto; // Puntero al primer elemento - hace la funcion de buscar el mayo
 
-    std::cout << "Lista de productos:" << std::endl;
+    cout << "Lista de productos:" << std::endl;
     for (int i = 0; i < tamano; ++i) {
         // 1. Mostramos el valor actual del arreglo
-        std::cout << "- " << (Pproducto + i)->precio << std::endl;
+        cout << "- " << (Pproducto + i)->precio << std::endl;
 
         // 2. Comprobamos si el elemento actual es mayor que el registrado
         if ((Pproducto + i)->precio > mayor->precio) {

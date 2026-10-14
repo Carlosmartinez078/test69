@@ -11,7 +11,7 @@ int main(){
     numbers.push_front(70);
 
     for (int i : numbers){
-        cout << i 
+        cout << i;
     }
     
 }

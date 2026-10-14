@@ -3,10 +3,10 @@
 
 // Struct para almacenar los datos de una canción
 struct Cancion {
-    std::string titulo;
-    std::string artista;
+    string titulo;
+    string artista;
     float duracion; // en minutos
-    std::string genero;
+    string genero;
 };
 
 // Struct Nodo - Representa cada nodo de la lista
@@ -32,7 +32,7 @@ void eliminarCancion(Cancion cancion);
 void contarCanciones();
 void calcularDuracionTotal();
 void liberarMemoria();
-std::string clasificarDuracion(float duracion);
+string clasificarDuracion(float duracion);
 
 int main()
 {
@@ -40,17 +40,17 @@ int main()
 
     do
     {
-        std::cout << "\n=== Biblioteca de Canciones ===\n";
-        std::cout << "1. Agregar cancion\n";
-        std::cout << "2. Mostrar playlist (inicio -> fin)\n";
-        std::cout << "3. Mostrar playlist (fin -> inicio)\n";
-        std::cout << "4. Buscar cancion\n";
-        std::cout << "5. Eliminar cancion\n";
-        std::cout << "6. Duracion total de playlist\n";
-        std::cout << "0. Salir\n";
-        std::cout << "Ingrese una opcion: ";
-        std::cin >> opcion;
-        std::cin.ignore(); // Limpiar el buffer de entrada
+        cout << "\n=== Biblioteca de Canciones ===\n";
+        cout << "1. Agregar cancion\n";
+        cout << "2. Mostrar playlist (inicio -> fin)\n";
+        cout << "3. Mostrar playlist (fin -> inicio)\n";
+        cout << "4. Buscar cancion\n";
+        cout << "5. Eliminar cancion\n";
+        cout << "6. Duracion total de playlist\n";
+        cout << "0. Salir\n";
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        cin.ignore(); // Limpiar el buffer de entrada
 
         switch (opcion)
         {
@@ -70,9 +70,9 @@ int main()
         {
             Cancion buscada;
 
-            std::cout << "\n--- Buscar cancion ---\n";
-            std::cout << "Ingrese el titulo de la cancion: ";
-            std::getline(std::cin, buscada.titulo);
+            cout << "\n--- Buscar cancion ---\n";
+            cout << "Ingrese el titulo de la cancion: ";
+            getline(cin, buscada.titulo);
 
             buscarCancion(buscada);
             break;
@@ -81,9 +81,9 @@ int main()
         {
             Cancion eliminada;
 
-            std::cout << "\n--- Eliminar cancion ---\n";
-            std::cout << "Ingrese el titulo de la cancion a eliminar: ";
-            std::getline(std::cin, eliminada.titulo);
+            cout << "\n--- Eliminar cancion ---\n";
+            cout << "Ingrese el titulo de la cancion a eliminar: ";
+            getline(cin, eliminada.titulo);
 
             eliminarCancion(eliminada);
             break;
@@ -92,11 +92,11 @@ int main()
             calcularDuracionTotal();
             break;
         case 0:
-            std::cout << "Saliendo del programa...\n";
+            cout << "Saliendo del programa...\n";
             liberarMemoria();
             break;
         default:
-            std::cout << "Opcion invalida. Intente nuevamente.\n";
+            cout << "Opcion invalida. Intente nuevamente.\n";
         }
         } while (opcion != 0);
 
@@ -107,28 +107,28 @@ int main()
 Cancion pedirDatosCancion() {
     Cancion nueva;
 
-    std::cout << "\n--- Agregar nueva cancion ---\n";
-    std::cout << "Titulo: ";
-    std::getline(std::cin, nueva.titulo);
-    std::cout << "Artista: ";
-    std::getline(std::cin, nueva.artista);
-    std::cout << "Duracion (minutos): ";
-    while (!(std::cin >> nueva.duracion) || nueva.duracion < 0)
+    cout << "\n--- Agregar nueva cancion ---\n";
+    cout << "Titulo: ";
+    getline(cin, nueva.titulo);
+    cout << "Artista: ";
+    getline(cin, nueva.artista);
+    cout << "Duracion (minutos): ";
+    while (!(cin >> nueva.duracion) || nueva.duracion < 0)
     {
-        std::cin.clear();
-        std::cin.ignore(1000, '\n');
+        cin.clear();
+        cin.ignore(1000, '\n');
         if (nueva.duracion < 0)
         {
-            std::cout << "No se aceptan numeros negativos. Intente nuevamente: ";
+            cout << "No se aceptan numeros negativos. Intente nuevamente: ";
         }
         else
         {
-            std::cout << "Solo se aceptan numeros. Intente nuevamente: ";
+            cout << "Solo se aceptan numeros. Intente nuevamente: ";
         }
     }
-    std::cin.ignore();
-    std::cout << "Genero: ";
-    std::getline(std::cin, nueva.genero);
+    cin.ignore();
+    cout << "Genero: ";
+    getline(cin, nueva.genero);
     return nueva;
 }
 
@@ -157,18 +157,18 @@ void agregarCancion(Cancion cancion)
         fin = nuevo_nodo;
     }
 
-    std::cout << "Cancion agregada exitosamente!\n";
+    cout << "Cancion agregada exitosamente!\n";
 }
 
 // Mostrar playlist de inicio a fin
 
 void mostrarPlaylist()
 {
-    std::cout << "\n--- Playlist (inicio -> fin) ---\n";
+    cout << "\n--- Playlist (inicio -> fin) ---\n";
 
     if (inicio == nullptr)
     {
-        std::cout << "La playlist esta vacia.\n";
+        cout << "La playlist esta vacia.\n";
         return;
     }
 
@@ -177,12 +177,12 @@ void mostrarPlaylist()
 
     while (actual != nullptr)
     {
-        std::cout << "\nCancion #" << posicion << "\n";
-        std::cout << "  Titulo: " << actual->cancion.titulo << "\n";
-        std::cout << "  Artista: " << actual->cancion.artista << "\n";
-        std::cout << "  Duracion: " << actual->cancion.duracion << " min ("
+        cout << "\nCancion #" << posicion << "\n";
+        cout << "  Titulo: " << actual->cancion.titulo << "\n";
+        cout << "  Artista: " << actual->cancion.artista << "\n";
+        cout << "  Duracion: " << actual->cancion.duracion << " min ("
                   << clasificarDuracion(actual->cancion.duracion) << ")\n";
-        std::cout << "  Genero: " << actual->cancion.genero << "\n";
+        cout << "  Genero: " << actual->cancion.genero << "\n";
         actual = actual->siguiente;
         posicion++;
     }
@@ -192,11 +192,11 @@ void mostrarPlaylist()
 
 void mostrarPlaylistInversa()
 {
-    std::cout << "\n--- Playlist (fin -> inicio) ---\n";
+    cout << "\n--- Playlist (fin -> inicio) ---\n";
 
     if (fin == nullptr)
     {
-        std::cout << "La playlist esta vacia.\n";
+        cout << "La playlist esta vacia.\n";
         return;
     }
 
@@ -205,12 +205,12 @@ void mostrarPlaylistInversa()
 
     while (actual != nullptr)
     {
-        std::cout << "\nCancion #" << posicion << "\n";
-        std::cout << "  Titulo: " << actual->cancion.titulo << "\n";
-        std::cout << "  Artista: " << actual->cancion.artista << "\n";
-        std::cout << "  Duracion: " << actual->cancion.duracion << " min ("
+        cout << "\nCancion #" << posicion << "\n";
+        cout << "  Titulo: " << actual->cancion.titulo << "\n";
+        cout << "  Artista: " << actual->cancion.artista << "\n";
+        cout << "  Duracion: " << actual->cancion.duracion << " min ("
                   << clasificarDuracion(actual->cancion.duracion) << ")\n";
-        std::cout << "  Genero: " << actual->cancion.genero << "\n";
+        cout << "  Genero: " << actual->cancion.genero << "\n";
         actual = actual->anterior;
         posicion++;
     }
@@ -222,7 +222,7 @@ void buscarCancion(Cancion cancion)
 {
     if (inicio == nullptr)
     {
-        std::cout << "La playlist esta vacia.\n";
+        cout << "La playlist esta vacia.\n";
         return;
     }
 
@@ -233,11 +233,11 @@ void buscarCancion(Cancion cancion)
     {
         if (actual->cancion.titulo == cancion.titulo)
         {
-            std::cout << "\nCancion encontrada:\n";
-            std::cout << "  Titulo: " << actual->cancion.titulo << "\n";
-            std::cout << "  Artista: " << actual->cancion.artista << "\n";
-            std::cout << "  Duracion: " << actual->cancion.duracion << " min\n";
-            std::cout << "  Genero: " << actual->cancion.genero << "\n";
+            cout << "\nCancion encontrada:\n";
+            cout << "  Titulo: " << actual->cancion.titulo << "\n";
+            cout << "  Artista: " << actual->cancion.artista << "\n";
+            cout << "  Duracion: " << actual->cancion.duracion << " min\n";
+            cout << "  Genero: " << actual->cancion.genero << "\n";
             encontrada = true;
             break;
         }
@@ -246,7 +246,7 @@ void buscarCancion(Cancion cancion)
 
     if (!encontrada)
     {
-        std::cout << "Cancion no encontrada.\n";
+        cout << "Cancion no encontrada.\n";
     }
 }
 
@@ -256,7 +256,7 @@ void eliminarCancion(Cancion cancion)
 {
     if (inicio == nullptr)
     {
-        std::cout << "La playlist esta vacia. No hay nada que eliminar.\n";
+        cout << "La playlist esta vacia. No hay nada que eliminar.\n";
         return;
     }
 
@@ -293,24 +293,24 @@ void eliminarCancion(Cancion cancion)
 
             delete actual;
 
-            std::cout << "Cancion eliminada exitosamente!\n";
+            cout << "Cancion eliminada exitosamente!\n";
             return;
         }
         actual = actual->siguiente;
     }
 
-    std::cout << "Cancion no encontrada.\n";
+    cout << "Cancion no encontrada.\n";
 }
 
 // Calcular duración total de la playlist
 
 void calcularDuracionTotal()
 {
-    std::cout << "\n--- Duracion total de playlist ---\n";
+    cout << "\n--- Duracion total de playlist ---\n";
 
     if (inicio == nullptr)
     {
-        std::cout << "La playlist esta vacia. Duracion total: 0 min\n";
+        cout << "La playlist esta vacia. Duracion total: 0 min\n";
         return;
     }
 
@@ -323,14 +323,14 @@ void calcularDuracionTotal()
         actual = actual->siguiente;
     }
 
-    std::cout << "Duracion total: " << duracion_total << " minutos\n";
-    std::cout << "Equivale a: " << (int)duracion_total << " min "
+    cout << "Duracion total: " << duracion_total << " minutos\n";
+    cout << "Equivale a: " << (int)duracion_total << " min "
               << (int)((duracion_total - (int)duracion_total) * 60) << " segundos\n";
 }
 
 // Clasificar duración de una canción
 
-std::string clasificarDuracion(float duracion)
+string clasificarDuracion(float duracion)
 {
     if (duracion < 3.0f)
     {
@@ -361,5 +361,5 @@ void liberarMemoria()
 
     inicio = nullptr;
     fin = nullptr;
-    std::cout << "Memoria liberada. Hasta luego!\n";
+    cout << "Memoria liberada. Hasta luego!\n";
 }

@@ -30,10 +30,10 @@ void PrintList (Node* head){
     Node* current = head;
 
     while (current != nullptr){
-        std::cout << current->data << " -> ";
+        cout << current->data << " -> ";
         current = current->next;
     }
-    std::cout<<std::endl;
+    cout<<std::endl;
 }
 
 void FreeList(Node*& head){
@@ -79,17 +79,17 @@ int main(){
     int option = 0;
 
     do{
-        std::cout<<"1. Insertar al inicio"<<std::endl;
-        std::cout<<"2. Insertar al final"<<std::endl;
-        std::cout<<"3. Imprimir lista"<<std::endl;
-        std::cout<<"4. Liberar memoria"<<std::endl;
-        std::cin>>option;
+        cout<<"1. Insertar al inicio"<<std::endl;
+        cout<<"2. Insertar al final"<<std::endl;
+        cout<<"3. Imprimir lista"<<std::endl;
+        cout<<"4. Liberar memoria"<<std::endl;
+        cin>>option;
 
         switch(option){
             case 1:{
                 int n;
-                std::cout<<"Ingrese un numero: ";
-                std::cin>>n;
+                cout<<"Ingrese un numero: ";
+                cin>>n;
 
                 Insert(lista1, n);
 
@@ -97,8 +97,8 @@ int main(){
             }
             case 2:{
                 int n;
-                std::cout<<"Ingrese un numero: ";
-                std::cin>>n;
+                cout<<"Ingrese un numero: ";
+                cin>>n;
 
                 InsertAtEnd(lista1, n);
 
@@ -109,12 +109,12 @@ int main(){
                 break;
             }
             case 4:{
-                std::cout<<"Liberando memoria..."<<std::endl;
+                cout<<"Liberando memoria..."<<std::endl;
                 FreeList(lista1);
                 break;
             }
             default:{
-                std::cout<<"Opcion invalida"<<std::endl;
+                cout<<"Opcion invalida"<<std::endl;
                 break;
             }
         }

@@ -1,8 +1,8 @@
 #include <iostream>
 
 struct Productos {
-    std::string id;
-    std::string name;
+    string id;
+    string name;
     float price;
 };
 
@@ -22,18 +22,18 @@ int main(){
     int option;
 
     do{
-        std::cout << "INVENTARIO DE PRODCUTOS \n";
-        std::cout << "1. Agregar producto\n";
-        std::cout << "2. Mostrar playlist (inicio -> fin)\n";;
-        std::cout << "3. Salir\n";
-        std::cout << "Ingrese una opcion: ";
-        std::cin >> option;
+        cout << "INVENTARIO DE PRODCUTOS \n";
+        cout << "1. Agregar producto\n";
+        cout << "2. Mostrar playlist (inicio -> fin)\n";;
+        cout << "3. Salir\n";
+        cout << "Ingrese una opcion: ";
+        cin >> option;
 
         switch (option) {
         case 1: {
             Productos nueva = pedirDatos();
 
-            std::cout << "///////////////////////////" << std::endl;
+            cout << "///////////////////////////" << std::endl;
             agregarProducto(nueva);
         }
         break;
@@ -54,12 +54,12 @@ int main(){
 Productos pedirDatos(){
     Productos nueva;
 
-        std::cout << "Codigo: " << std::endl;
-        std::cin >> nueva.id;
-        std::cout << "Nombre: " << std::endl;
-        std::cin >> nueva.name;
-        std::cout << "Precio: " << std::endl;
-        std::cin >> nueva.price;
+        cout << "Codigo: " << std::endl;
+        cin >> nueva.id;
+        cout << "Nombre: " << std::endl;
+        cin >> nueva.name;
+        cout << "Precio: " << std::endl;
+        cin >> nueva.price;
         return nueva;
 }
 
@@ -78,7 +78,7 @@ void InsertarInicio(Productos producto){
         inicio->anterior = nuevoNodo;
         inicio = nuevoNodo;
     }
-    std::cout << "Prodcuto agregado \n";
+    cout << "Prodcuto agregado \n";
 }
 
 void InsertarFinal(Productos producto){
@@ -100,11 +100,11 @@ void InsertarFinal(Productos producto){
 
 
 void mostrarDatos() {
-    std::cout << "Productos ---\n";
+    cout << "Productos ---\n";
 
     if (inicio == nullptr)
     {
-        std::cout << "La playlist esta vacia.\n";
+        cout << "La playlist esta vacia.\n";
         return;
     }
 
@@ -113,12 +113,12 @@ void mostrarDatos() {
 
     while (actual != nullptr)
     {
-        std::cout << "\nCancion #" << posicion << "\n";
-        std::cout << "  Titulo: " << actual->cancion.titulo << "\n";
-        std::cout << "  Artista: " << actual->cancion.artista << "\n";
-        std::cout << "  Duracion: " << actual->cancion.duracion << " min ("
+        cout << "\nCancion #" << posicion << "\n";
+        cout << "  Titulo: " << actual->cancion.titulo << "\n";
+        cout << "  Artista: " << actual->cancion.artista << "\n";
+        cout << "  Duracion: " << actual->cancion.duracion << " min ("
                   << clasificarDuracion(actual->cancion.duracion) << ")\n";
-        std::cout << "  Genero: " << actual->cancion.genero << "\n";
+        cout << "  Genero: " << actual->cancion.genero << "\n";
         actual = actual->siguiente;
         posicion++;
     }

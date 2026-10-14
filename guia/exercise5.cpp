@@ -3,7 +3,7 @@
 #include <iostream>
 
 struct estudiante {
-    std::string nombre;
+    string nombre;
     float nota;
 };
 
@@ -22,17 +22,17 @@ int main(){
 }
 
 void showStudent(estudiante& estudiante1, estudiante& estudiante2){
-    std::cout<<"Nombre: " << estudiante1.nombre << std::endl; 
-    std::cout<<"Nota: " <<estudiante1.nota << std::endl;
-    std::cout<<"Nombre: " << estudiante2.nombre << std::endl; 
-    std::cout<<"Nota: " <<estudiante2.nota << std::endl;
+    cout<<"Nombre: " << estudiante1.nombre << std::endl; 
+    cout<<"Nota: " <<estudiante1.nota << std::endl;
+    cout<<"Nombre: " << estudiante2.nombre << std::endl; 
+    cout<<"Nota: " <<estudiante2.nota << std::endl;
 }
 
 
 void mayorNota(estudiante& estudiante1, estudiante& estudiante2){
     if (estudiante1.nota > estudiante2.nota) {
-        std::cout  << "El estudiante 1 tiene mayor nota." << std::endl;
+        cout  << "El estudiante 1 tiene mayor nota." << std::endl;
     } else {
-        std::cout << "El estudiante 2 tiene mayor nota." << std::endl;
+        cout << "El estudiante 2 tiene mayor nota." << std::endl;
     }
 }

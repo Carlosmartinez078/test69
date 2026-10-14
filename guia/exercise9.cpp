@@ -12,14 +12,14 @@ float operacion(const Rectangulo& Prectangulo); // Devuelve el área como float
 int main() {
     Rectangulo recta1 = {-2, 5}; // Probamos con un valor negativo
     
-    std::cout << "Ancho: " << recta1.ancho << " | Alto: " << recta1.alto << std::endl;
-    std::cout << "///////////////////////" << std::endl;
+    cout << "Ancho: " << recta1.ancho << " | Alto: " << recta1.alto << std::endl;
+    cout << "///////////////////////" << std::endl;
 
     numberCero(recta1);
 
     
     float area = operacion(recta1);
-    std::cout << "El area es: " << area << std::endl;
+    cout << "El area es: " << area << std::endl;
 
     return 0;
 }

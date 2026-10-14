@@ -11,15 +11,15 @@ void swap(int *a, int *b){
 
 int main(){
     int x =7 , y =4;
-    std::cout << "Antes del cambio" << std::endl;
-    std::cout << "X: " << x << std::endl;
-    std::cout << "Y: " << y << std::endl;
+    cout << "Antes del cambio" << std::endl;
+    cout << "X: " << x << std::endl;
+    cout << "Y: " << y << std::endl;
 
     swap (&x, &y);
 
-    std::cout<< "Despues del cambio" << std::endl;
-    std::cout<< "X:" << x << std::endl;
-    std::cout<< "Y:" << y << std::endl;
+    cout<< "Despues del cambio" << std::endl;
+    cout<< "X:" << x << std::endl;
+    cout<< "Y:" << y << std::endl;
 
     return 0;
 }

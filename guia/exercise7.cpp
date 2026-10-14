@@ -15,12 +15,12 @@ int main(){
 
 void changeArreglo(int* arreglo, int tamano){
     for (int i = 0; i < tamano; i++) {
-        std::cout << "Elementos. " << arreglo[i] << std::endl;
-        std::cout << std::endl;
+        cout << "Elementos. " << arreglo[i] << std::endl;
+        cout << std::endl;
         if (arreglo[i] < 0) {
         arreglo[i] = 0; // si cumple que son menor a 0 hacer que se hagan cero si o si
         }
-    std::cout << "Elementos despues del cambio. " << arreglo[i] << std::endl;
-    std::cout << std::endl;
+    cout << "Elementos despues del cambio. " << arreglo[i] << std::endl;
+    cout << std::endl;
     }    
 }

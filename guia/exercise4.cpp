@@ -19,15 +19,15 @@ main(){
 
 void actualizarSaldo (cuenta& Pcuenta, int monto){
     if (Pcuenta.saldo >= monto) {
-        std::cout << "Su saldo es: " << Pcuenta.saldo << std::endl;
-        std::cout << "el monto de su compra es: " << monto << std::endl;
+        cout << "Su saldo es: " << Pcuenta.saldo << std::endl;
+        cout << "el monto de su compra es: " << monto << std::endl;
         
         Pcuenta.saldo = Pcuenta.saldo - monto; // se actualiza el valor dentro de la funcion por enviar por referencia 
 
-        std::cout << "Transacción exitosa. Nuevo Saldo: " << Pcuenta.saldo << std::endl;
+        cout << "Transacción exitosa. Nuevo Saldo: " << Pcuenta.saldo << std::endl;
     } else {
         // Es buena práctica agregar un aviso si la condición no se cumple
-        std::cout << "Transacción denegada: Saldo insuficiente." << std::endl;
+        cout << "Transacción denegada: Saldo insuficiente." << std::endl;
     }
 }
 
