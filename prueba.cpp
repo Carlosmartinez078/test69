@@ -1,36 +1,43 @@
 #include <iostream>
 
-struct Productos {
+struct Productos
+{
     string id;
     string name;
     float price;
 };
 
-struct Nodo {
-    Productos producto; 
-    Nodo *siguiente; 
-    Nodo *anterior;  
+struct Nodo
+{
+    Productos producto;
+    Nodo *siguiente;
+    Nodo *anterior;
 };
 
-Nodo *inicio = nullptr; 
-Nodo *fin = nullptr; 
+Nodo *inicio = nullptr;
+Nodo *fin = nullptr;
 
 Productos pedirDatos();
 void agregarProducto(Productos producto);
 
-int main(){
+int main()
+{
     int option;
 
-    do{
+    do
+    {
         cout << "INVENTARIO DE PRODCUTOS \n";
         cout << "1. Agregar producto\n";
-        cout << "2. Mostrar playlist (inicio -> fin)\n";;
+        cout << "2. Mostrar playlist (inicio -> fin)\n";
+        ;
         cout << "3. Salir\n";
         cout << "Ingrese una opcion: ";
         cin >> option;
 
-        switch (option) {
-        case 1: {
+        switch (option)
+        {
+        case 1:
+        {
             Productos nueva = pedirDatos();
 
             cout << "///////////////////////////" << std::endl;
@@ -43,63 +50,66 @@ int main(){
         case 3:
             // mostrarPlaylistInversa();
             break;
-    }
+        }
     } while (option != 0);
-    
+
     return 0;
-}        
- 
- 
-
-Productos pedirDatos(){
-    Productos nueva;
-
-        cout << "Codigo: " << std::endl;
-        cin >> nueva.id;
-        cout << "Nombre: " << std::endl;
-        cin >> nueva.name;
-        cout << "Precio: " << std::endl;
-        cin >> nueva.price;
-        return nueva;
 }
 
+Productos pedirDatos()
+{
+    Productos nueva;
 
+    cout << "Codigo: " << std::endl;
+    cin >> nueva.id;
+    cout << "Nombre: " << std::endl;
+    cin >> nueva.name;
+    cout << "Precio: " << std::endl;
+    cin >> nueva.price;
+    return nueva;
+}
 
-void InsertarInicio(Productos producto){
+void InsertarInicio(Productos producto)
+{
     Nodo *nuevoNodo = new Nodo();
     nuevoNodo->producto = producto;
     nuevoNodo->siguiente = inicio;
     nuevoNodo->anterior = nullptr;
 
-    if (inicio == nullptr) {
+    if (inicio == nullptr)
+    {
         inicio = nuevoNodo;
         fin = nuevoNodo;
-    } else {
+    }
+    else
+    {
         inicio->anterior = nuevoNodo;
         inicio = nuevoNodo;
     }
     cout << "Prodcuto agregado \n";
 }
 
-void InsertarFinal(Productos producto){
+void InsertarFinal(Productos producto)
+{
     Nodo *nuevoNodo = new Nodo();
     nuevoNodo->producto = producto;
     nuevoNodo->siguiente = nullptr;
     nuevoNodo->anterior = fin;
 
-    if (fin == nullptr) {
+    if (fin == nullptr)
+    {
         inicio = nuevoNodo;
         fin = nuevoNodo;
-    } else {
+    }
+    else
+    {
         fin->siguiente = nuevoNodo;
         fin = nuevoNodo;
     }
 }
 
-    
-
-
-void mostrarDatos() {
+void mostrarDatos()
+{
     cout << "Productos ---\n";
 
     if (inicio == nullptr)
@@ -117,10 +127,9 @@ void mostrarDatos() {
         cout << "  Titulo: " << actual->cancion.titulo << "\n";
         cout << "  Artista: " << actual->cancion.artista << "\n";
         cout << "  Duracion: " << actual->cancion.duracion << " min ("
-                  << clasificarDuracion(actual->cancion.duracion) << ")\n";
+             << clasificarDuracion(actual->cancion.duracion) << ")\n";
         cout << "  Genero: " << actual->cancion.genero << "\n";
         actual = actual->siguiente;
         posicion++;
     }
 }
-

@@ -2,7 +2,7 @@
 #include <stack>
 
 int main() {
-    std::stack<int> miPila;
+    stack<int> miPila;
 
     // 1. Insertamos elementos con .push()
     miPila.push(10);
