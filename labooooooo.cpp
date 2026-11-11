@@ -4,8 +4,7 @@
 #include <algorithm>
 #include <string>
 
-struct Cancion
-{
+struct Cancion{
     std::string titulo;
     std::string artista;
     float duracion; // en minutos
@@ -28,7 +27,7 @@ int main()
 
     do
     {
-        std::cout << "\n=== Biblioteca de Musica Personal ===\n";
+        std::cout << "Biblioteca de musica \n";
         std::cout << "1. Agregar cancion\n";
         std::cout << "2. Ordenar y mostrar playlist (por reproducciones)\n";
         std::cout << "3. Buscar canciones por artista (lower_bound)\n";
@@ -87,21 +86,22 @@ int main()
 }
 
 void SolicitarDatos(Cancion &cancion) {
-    std::cout << "Ingresar el titulo de la cancion: ";
-    std::cin >> cancion.titulo;
-
-    std::cout << "Ingresar el artista: ";
-    std::cin >> cancion.artista;
-
-    std::cout << "Ingresar la duracion (en minutos): ";
-    std::cin >> cancion.duracion;
-
-    std::cout << "Ingresar el genero: ";
-    std::cin >> cancion.genero;
-
-    std::cout << "Ingresar el numero de reproducciones: ";
-    std::cin >> cancion.reproducciones;
+    Cancion c;
+    std::cout << "\n-Registrar Nueva Cancion-\n";
+    std::cout << "Titulo: ";
+    std::cin.ignore();
+    std::getline(std::cin, c.titulo);
+    std::cout << "Artista: ";
+    std::getline(std::cin, c.artista);
+    std::cout << "Duracion (minutos): ";
+    std::cin >> c.duracion;
+    std::cout << "Genero: ";
+    std::cin.ignore();
+    std::getline(std::cin, c.genero);
+    std::cout << "Numero de reproducciones: ";
+    std::cin >> c.reproducciones;
 }
+
 
 void MostrarPlaylist(std::list<Cancion> lista) {
     std::cout << "Mi playlist de musica \n";

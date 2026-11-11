@@ -1,6 +1,8 @@
 #include <stack>
 #include <iostream>
 
+
+//para remover numeros repetidos
 void RemoveFromStack(std::stack<int>& tasks, int target) {
   std::stack<int> auxiliary;
 
